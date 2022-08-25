@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-between align-items-center py-2 px-5 bottom border solid black">
+            <div class="tittle">
+                <h1 class="fiveq">5Q</h1>
+                <p class="question-quiz">UESTION <BR>UIZ</p>
+            </div>
+            <h2 class="text-center">Hello {{user.first_name}}!</h2>
+            <div class="d-flex">
+                <a href="/new" class="btn btn-success">Create Quiz</a>
+                <form action='/logout' method="post">
+                    <input type="submit" value="Logout" class="btn btn-danger">
+                </form>
+            </div>
+        </div>
+        <div class="quizes">
+            {% for quiz in quizes %}
+                <div class="quiz_name">
+                    <div>
+                        <h2>{{quiz.name}}</h2>
+                    </div>
+                    <div>
+                        <h5>Created by {{quiz.first_name}}</h5>
+                    </div>
+                    <div class="d-flex">
+                        <h3>{{likes|length}} likes </h3>
+                        
+                            <form action="/like" method="post" id="like" name="form_like" class="">
+                                <input type="hidden" name="user_id" value="{{user.id}}">
+                                <input type="hidden" name="quiz_id" value="{{quiz.id}}">
+                                <input type="submit" id="likes" class="btn btn-info" value="Like" onclick="action()">
+                            </form>
+                        
+                            <form action="/delete/like/{{user.id}}/{{quiz.id}}"  id="form-unlike" name="form-unlike" class="">
+                                <input type="hidden" name="user_id" value="{{user.id}}">
+                                <input type="hidden" name="quiz_id" value="{{quiz.id}}">
+                                <input type="submit" id="unlike" class="btn btn-info" value="Unlike"  >
+                            </form>
+                        
+                    </div>
+                    <div> 
+                        <a href="/play/quiz/{{quiz.id}}" class="btn btn-success">PLAY</a>
+                        <a href="/show/quiz/{{quiz.id}}" class="btn btn-dark">SHOW</a>
+                        {% if quiz.user_id == user.id %}
+                            <a href="/edit/quiz/{{quiz.id}}" class="btn btn-dark">EDIT</a>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
