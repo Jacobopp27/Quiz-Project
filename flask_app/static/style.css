@@ -6,6 +6,7 @@
 body{
     padding: 20px;
     background-color: black;
+    height: auto;
 }
 
 .tittle{
@@ -45,6 +46,7 @@ textarea{
 }
 .d-block{
     margin: 10px 10px 10px 160px;
+    height: auto;
 }
 #input{
     margin:10px 330px;
@@ -63,14 +65,32 @@ textarea{
 .question{
     margin: 10px 160px;
     width: 460px;
+    text-align: center;
 }
+
+#btn{
+    width: 580px;
+    margin: 15px 0;
+}
+
+.save{
+    text-align: center;
+}
+
 .answers{
-    margin: 10px 160px;
-    width: 460px;
+    width: 760px;
+    height: auto;
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: auto;
 }
+
+
 
 .hide{
     display: none;
+    visibility: hidden;
 }
 
 
@@ -90,9 +110,10 @@ textarea{
 .form-g{
     border: solid black 1px;
     width: 800px;
-    height: 400px;
+    height: auto;
     margin: 25px 0px;
     padding: 30px 5px;
+    text-align: center;
 }
 #answer{
     height: 38px;
@@ -100,4 +121,33 @@ textarea{
     border-radius: 10px;
     margin: 5px;
     padding: 5px;
+}
+
+
+#input-results{
+    width: 100px;
+    height: 45px;
+    display: inline;
+    text-align: center;
+}
+
+
+.finalscore{
+    text-align: right;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px;
+}
+
+.show_results{
+    vertical-align: super;
+    margin: 0;
+}
+#playagain{
+    text-align: right;
+}
+
+
+.playagain{
+    width: 630px;
+    text-align: right;
 }

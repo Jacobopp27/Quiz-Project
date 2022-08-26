@@ -55,6 +55,24 @@ def play_quiz(id):
 
     return render_template('play.html', user=user, quiz=quiz)
 
+
+@app.route('/results/<int:id>')  
+def results(id):
+    if 'user_id' not in session:  
+        return redirect('/')
+
+    formulario = {
+        "id": session['user_id']
+    }
+
+    user = User.get_by_id(formulario) 
+
+
+    formulario = { "id": id }
+    quiz = Quiz.get_by_id(formulario)
+
+    return render_template('results.html', user=user, quiz=quiz)
+
     
 @app.route('/show/quiz/<int:id>')  
 def show_quiz(id):

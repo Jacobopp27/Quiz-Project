@@ -38,13 +38,13 @@
                             <form action="/like" method="post" id="like" name="form_like" class="">
                                 <input type="hidden" name="user_id" value="{{user.id}}">
                                 <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                <input type="submit" id="likes" class="btn btn-info" value="Like" onclick="action()">
+                                <input type="submit" id="likes" class="btn btn-info" value="Like" onclick="like()">
                             </form>
                         
                             <form action="/delete/like/{{user.id}}/{{quiz.id}}"  id="form-unlike" name="form-unlike" class="">
                                 <input type="hidden" name="user_id" value="{{user.id}}">
                                 <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                <input type="submit" id="unlike" class="btn btn-info" value="Unlike"  >
+                                <input type="submit" id="unlike" class="btn btn-info" value="Unlike" onclick="unlike()">
                             </form>
                         
                     </div>

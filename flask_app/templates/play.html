@@ -15,7 +15,7 @@
                 <h1 class="fiveq">5Q</h1>
                 <p class="question-quiz">UESTION <BR>UIZ</p>
             </div>
-            <h2 class="text-center">Hello {{user.first_name}}!</h2>
+            <h2 class="text-center">{{quiz.name}}!</h2>
             <div class="d-flex">
                 <a href="/dashboard" class="btn btn-success">Dashboard</a>
                 <form action='/logout' method="post">
@@ -23,12 +23,10 @@
                 </form>
             </div>
         </div>
-        <div class="col-8">
-            <div class="d-block">
+        <div class="col-8"  >
+            <div class="d-block" id="all">
                 <input type="hidden" name="user_id" value="{{user.id}}">
-                <div class="form-groupi">
-                    <h1 id="name" name="name" >{{quiz.name}}</h1>
-                </div>
+                
                 <div class="form-group d-block">
                     <div>
                         {% if quiz.category == 1 %}
@@ -55,19 +53,23 @@
                     </div>
                     <div class="answers">
                         <ul>
-                            <div>
-                                <button name="correct_answer_1" id="answer" onclick="setCorrect(this)" class="btn btn-dark btn-lg btn-block"  >{{quiz.correct_answer_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question1" value="correct_answer_1" >{{quiz.correct_answer_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_1_1" id="answer" onclick="setActive(this)" class="btn btn-dark btn-lg btn-block"  >{{quiz.incorrect_answer_1_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question1" value="incorrect_answer_1_1" >{{quiz.incorrect_answer_1_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_1_2" id="answer" onclick="setActive(this)" class="btn btn-dark btn-lg btn-block" >{{quiz.incorrect_answer_1_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question1" value="incorrect_answer_1_2" >{{quiz.incorrect_answer_1_2}}</h5>
                             </div>
-                            <div>
-                            <button name="incorrect_answer_1_3" id="answer" class="btn btn-dark btn-lg btn-block" >{{quiz.incorrect_answer_1_3}}</button>                        
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question1" value="incorrect_answer_1_3" >{{quiz.incorrect_answer_1_3}}</h5>
                             </div>
                         </ul>
+                        <div class="save">
+                            <button class="btn btn-success" id="save-q-1" onclick="save_q1()">Save answer</button>
+                            <h5 class="hide" id="saved-q-1">Saved!</h5>
+                        </div>
                     </div>
                 </div>
                 <div class="form-g">
@@ -79,19 +81,23 @@
                     </div>
                     <div class="answers">
                         <ul class="ul-2">
-                            <div>
-                                <button name="correct_answer_2" id="answer" class="btn btn-dark btn-lg btn-block">{{quiz.correct_answer_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question2" value="correct_answer_2" >{{quiz.correct_answer_2}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_2_1" id="answer">{{quiz.incorrect_answer_2_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question2" value="incorrect_answer_2_1" >{{quiz.incorrect_answer_2_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_2_2" id="answer">{{quiz.incorrect_answer_2_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question2" value="incorrect_answer_2_2" >{{quiz.incorrect_answer_2_2}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_2_3" id="answer">{{quiz.incorrect_answer_2_3}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question2" value="incorrect_answer_2_3" >{{quiz.incorrect_answer_2_3}}</h5>
                             </div>
                         </ul>
+                        <div class="save">
+                            <button class="btn btn-success" id="save-q-2" onclick="save_q2()">Save answer</button>
+                            <h5 class="hide" id="saved-q-2">Saved!</h5>
+                        </div>
                     </div>
                 </div>
                 <div class="form-g">
@@ -103,19 +109,23 @@
                     </div>
                     <div class="answers">
                         <ul class="ul-3">
-                            <div>
-                                <button name="correct_answer_3" id="answer">{{quiz.correct_answer_3}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question3" value="correct_answer_3" >{{quiz.correct_answer_3}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_3_1" id="answer">{{quiz.incorrect_answer_3_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question3" value="incorrect_answer_3_1" >{{quiz.incorrect_answer_3_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_3_2" id="answer">{{quiz.incorrect_answer_3_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question3" value="incorrect_answer_3_2" >{{quiz.incorrect_answer_3_2}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_3_3" id="answer">{{quiz.incorrect_answer_3_3}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question3" value="incorrect_answer_3_3" >{{quiz.incorrect_answer_3_3}}</h5>
                             </div>
                         </ul>
+                        <div class="save">
+                            <button class="btn btn-success" id="save-q-3" onclick="save_q3()">Save answer</button>
+                            <h5 class="hide" id="saved-q-3">Saved!</h5>
+                        </div>
                     </div>
                 </div>
                 <div class="form-g">
@@ -127,19 +137,23 @@
                     </div>
                     <div class="answers">
                         <ul class="ul-4">
-                            <div>
-                                <button name="correct_answer_4" id="answer">{{quiz.correct_answer_4}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question4" value="correct_answer_4" >{{quiz.correct_answer_4}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_4_1" id="answer">{{quiz.incorrect_answer_4_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question4" value="incorrect_answer_4_1" >{{quiz.incorrect_answer_4_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_4_2" id="answer">{{quiz.incorrect_answer_4_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question4" value="incorrect_answer_4_2" >{{quiz.incorrect_answer_4_2}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_4_3" id="answer">{{quiz.incorrect_answer_4_3}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question4" value="incorrect_answer_4_3" >{{quiz.incorrect_answer_4_3}}</h5>
                             </div>
                         </ul>
+                        <div class="save">
+                            <button class="btn btn-success" id="save-q-4" onclick="save_q4()">Save answer</button>
+                            <h5 class="hide" id="saved-q-4">Saved!</h5>
+                        </div>
                     </div>
                 </div>
                 <div class="form-g">
@@ -151,22 +165,33 @@
                     </div>
                     <div class="answers">
                         <ul class="ul-5">
-                            <div>
-                                <button name="correct_answer_5" id="answer">{{quiz.correct_answer_5}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question5" value="correct_answer_5" class="green">{{quiz.correct_answer_5}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_5_1" id="answer">{{quiz.incorrect_answer_5_1}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question5" value="incorrect_answer_5_1" >{{quiz.incorrect_answer_5_1}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_5_2" id="answer">{{quiz.incorrect_answer_5_2}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question5" value="incorrect_answer_5_2" >{{quiz.incorrect_answer_5_2}}</h5>
                             </div>
-                            <div>
-                                <button name="incorrect_answer_5_3" id="answer">{{quiz.incorrect_answer_5_3}}</button>
+                            <div class="btn btn-dark" id="btn">
+                                <h5><input type="radio" name="question5" value="incorrect_answer_5_3" >{{quiz.incorrect_answer_5_3}}</h5>
                             </div>
                         </ul>
+                        <div class="save">
+                            <button class="btn btn-success" id="save-q-5" onclick="save_q5()">Save answer</button>
+                            <h5 class="hide" id="saved-q-5">Saved!</h5>
+                        </div>
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success" id="input" value="Create">
+                <a type="submit" class="btn btn-success" id="input-results" value="Results" onclick="results()">Results</a>
+            </div>
+            <div>
+                <h3 id="finalscore" class="finalscore"></h3>
+                <div class="playagain">
+                    <a href="/play/quiz/{{quiz.id}}" class="btn btn-warning hide" id="playagain">Play Again</a>
+                    <a type="submit" href="/results/{{quiz.id}}" class="btn btn-info hide" id="see-results">See Results</a>
+                </div>
             </div>
         </div>
     </div>
