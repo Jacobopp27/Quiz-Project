@@ -16,9 +16,9 @@ class Like:
         return result
 
     @classmethod
-    def get_all(cls):
-        query = "SELECT likes.*, first_name, name FROM likes LEFT JOIN users ON users.id = likes.user_id LEFT JOIN quizes ON quizes.id = likes.quiz_id;" 
-        results = connectToMySQL('quiz_project').query_db(query) 
+    def get_all(cls, formulario):
+        query = "SELECT likes.*, first_name, name FROM likes LEFT JOIN users ON users.id = likes.user_id LEFT JOIN quizes ON quizes.id = likes.quiz_id" 
+        results = connectToMySQL('quiz_project').query_db(query, formulario) 
         likes = []
         
         for row in results:

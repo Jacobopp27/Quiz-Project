@@ -36,8 +36,8 @@ def register():
     }
     if not User.valida_usuario(request.form):
         return redirect('/')
-    
-    id = User.save(data)
+    else:
+        id = User.save(data)
 
     session['user_id'] = id
     return redirect('/dashboard')
@@ -50,10 +50,12 @@ def dashboard():
     formulario = {
         "id": session['user_id']
     }
+    
+    
     user = User.get_by_id(formulario)
     users = User.get_all()
     quizes = Quiz.get_all()
-    likes = Like.get_all()
+    likes = Like.get_all(formulario)
 
     return render_template('dashboard.html', user = user, users=users, quizes=quizes, likes = likes)
 

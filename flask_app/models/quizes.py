@@ -75,3 +75,36 @@ class Quiz:
         query = "DELETE * FROM quizes WHERE id = %(id)s"
         result = connectToMySQL('quiz_project').query_db(query, formulario)
         return result
+
+    @staticmethod
+    def valida_quiz(formulario):
+        es_valido_quiz = True
+        if len(formulario['name']) < 2:
+            flash('Insert a Quiz name', 'create')
+            es_valido_quiz = False
+        if len(formulario['description']) < 2:
+            flash('Insert a Quiz description', 'create')
+            es_valido_quiz = False
+        if len(formulario['question_1']) < 2 or len(formulario['question_2']) < 2 or len(formulario['question_3']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+        
+        if len(formulario['question_4']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+        if len(formulario['correct_answer_1']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+        if len(formulario['correct_answer_2']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+        if len(formulario['correct_answer_3']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+        if len(formulario['correct_answer_4']) < 2:
+            flash('No empty spaces', 'create')
+            es_valido_quiz = False
+
+
+
+        return es_valido_quiz

@@ -22,19 +22,13 @@ def create_quiz():
     if 'user_id' not in session:  
         return redirect('/')
 
-
-    Quiz.save(request.form)
-    return redirect('/dashboard')
-
-
-@app.route('/like', methods=['POST'])
-def like():
-    if 'user_id' not in session:  
-        return redirect('/')
+    if not Quiz.valida_quiz(request.form):
+        return redirect('/create/quiz')
+    else:
+        Quiz.save(request.form)
+        return redirect('/dashboard')
 
 
-    Like.save(request.form)
-    return redirect('/dashboard')
 
 
 
@@ -127,4 +121,13 @@ def delete_like(user_id, quiz_id):
     formulario = {"user_id": user_id, "quiz_id":quiz_id}
     Like.delete_like(formulario)
 
+    return redirect('/dashboard')
+
+@app.route('/like/<int:user_id>/<int:quiz_id>', methods=['POST'])
+def like(user_id, quiz_id):
+    if 'user_id' not in session:  
+        return redirect('/')
+
+    formulario = {"user_id": user_id, "quiz_id":quiz_id}
+    Like.save(formulario)
     return redirect('/dashboard')

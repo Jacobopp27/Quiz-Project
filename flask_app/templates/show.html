@@ -16,7 +16,7 @@
                 <p class="question-quiz">UESTION <BR>UIZ</p>
             </div>
             <h2 class="text-center">Hello {{user.first_name}}!</h2>
-            <div class="d-flex">
+            <div id="nav-button">
                 <a href="/dashboard" class="btn btn-success">Dashboard</a>
                 <form action='/logout' method="post">
                     <input type="submit" value="Logout" class="btn btn-danger">
@@ -29,8 +29,11 @@
                 <div class="form-groupi">
                     <h1 id="name" name="name" >{{quiz.name}}</h1>
                 </div>
-                <div class="form-group d-block">
-                    <div>
+                <div class="form-groupi">
+                    <h5 id="name" name="name" >Created by {{quiz.first_name}}</h5>
+                </div>
+                <div class="form-group d-block" id="show-desc">
+                    <div class="show-desc">
                         {% if quiz.category == 1 %}
                             <h3>Geography</h3>
                         {% elif quiz.category == 2 %}
@@ -41,13 +44,14 @@
                         
                     </div>
                 </div>
-                <div class="form-group d-block">
-                    <div>
+                <div class="form-group d-block" id="show-desc">
+                    <div class="show-desc">
                         <h6 name="description" id="description" cols="60" rows="7"> {{quiz.description}}</h6> 
                     </div>
                 </div>
-                
-                <a href="/play/quiz/{{quiz.id}}" class="btn btn-success" id="input">PLAY</a>
+                <div class="#show-input">
+                    <a href="/play/quiz/{{quiz.id}}" class="btn btn-success" id="input">PLAY</a>
+                </div>
             </div>
         </div>
     </div>

@@ -170,19 +170,16 @@ function results(){
     results.classList.remove('hide');
 }
 
-
-function like(){
-    var element = document.getElementById("like");
-    var elementliked = document.getElementById("form-unlike");
-
+var element = document.getElementById("like");
+function like(x){
+    var elementliked = document.getElementById("unlike");
+    x.classList.add('hide');
     elementliked.classList.remove('hide');
-    element.classList.add('hide');
+    
 }
 
 function unlike(){
-    var element = document.getElementById("form-unlike");
-    var elementliked = document.getElementById("like");
-    element.classList.add('hide');
-    elementliked.classList.remove('hide');
+    elementliked.classList.add('hide');
+    element.classList.remove('hide');
     
 }
