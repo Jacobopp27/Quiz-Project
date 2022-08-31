@@ -33,20 +33,20 @@
                         <h5>Created by {{quiz.first_name}}</h5>
                     </div>
                     <div class="d-flex">
-                        <h3>{{quiz.likes}} likes </h3>
+                        <h3 class="like-counter">{{quiz.likes}}  </h3>
                         <div class="like-unlike">
-                            {% if quiz.user_id != session["user_id"] %}
+                            {% if user_like.user_id == session['user_id'] %}
                                 <form action="/like/{{user.id}}/{{quiz.id}}" method="post" id="like" name="form_like" class="">
                                     <input type="hidden" name="user_id" value="{{user.id}}">
                                     <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                    <input type="submit" id="likes" class="btn btn-info" value="Like" >
+                                    <input type="image" id="likes" alt="submit" class="btn btn-outline-success" value="Like" src="{{url_for('static', filename='images/thumbs-up.png')}}">
                                 </form>
                                 
                             {% else %}
                                 <form action="/delete/like/{{user.id}}/{{quiz.id}}"  id="form-unlike" name="form-unlike" class="">
                                     <input type="hidden" name="user_id" value="{{user.id}}">
                                     <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                    <input type="submit" id="unlike" class="btn btn-info" value="Unlike" >
+                                    <input type="image" id="unlike" alt="submit" class="btn btn-outline-danger" value="Unlike" src="{{url_for('static', filename='images/thumbs-down.png')}}">
                                 </form>
                             {% endif %}
                         </div>

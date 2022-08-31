@@ -555,4 +555,15 @@
         width: 710px;
         text-align: right;
     }
+
+    #likes, #unlike{
+        width: 60px;
+        height: 45px;
+    }
+    .like-counter{
+        display: flex;
+        align-items: center;
+        margin: 5px;
+        vertical-align: middle;
+    }
 }

@@ -1,4 +1,3 @@
-from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
@@ -98,26 +97,13 @@ class Quiz:
         if len(formulario['description']) < 2:
             flash('Insert a Quiz description', 'create')
             es_valido_quiz = False
-        if len(formulario['question_1']) < 2 or len(formulario['question_2']) < 2 or len(formulario['question_3']) < 2:
-            flash('No empty spaces', 'create')
+        if len(formulario['question_1']) < 2 or len(formulario['question_2']) < 2 or len(formulario['question_3']) < 2 or len(formulario['question_4']) < 2 or len(formulario['question_5']) < 2:
+            flash('Insert all questions', 'create')
             es_valido_quiz = False
         
-        if len(formulario['question_4']) < 2:
+        if len(formulario['correct_answer_1']) < 2 or len(formulario['correct_answer_2']) < 2 or len(formulario['correct_answer_3']) < 2 or len(formulario['correct_answer_4']) < 2 or len(formulario['correct_answer_5']) < 2 or len(formulario['incorrect_answer_1_1']) < 2 or len(formulario['incorrect_answer_1_2']) < 2 or len(formulario['incorrect_answer_1_3']) < 2 or len(formulario['incorrect_answer_2_1']) < 2 or len(formulario['incorrect_answer_2_2']) < 2 or len(formulario['incorrect_answer_2_3']) < 2 or len(formulario['incorrect_answer_3_1']) < 2 or len(formulario['incorrect_answer_3_2']) < 2 or len(formulario['incorrect_answer_3_3']) < 2 or len(formulario['incorrect_answer_4_1']) < 2 or len(formulario['incorrect_answer_4_2']) < 2 or len(formulario['incorrect_answer_4_3']) < 2 or len(formulario['incorrect_answer_5_1']) < 2 or len(formulario['incorrect_answer_5_2']) < 2 or len(formulario['incorrect_answer_5_3']) < 2:
             flash('No empty spaces', 'create')
             es_valido_quiz = False
-        if len(formulario['correct_answer_1']) < 2:
-            flash('No empty spaces', 'create')
-            es_valido_quiz = False
-        if len(formulario['correct_answer_2']) < 2:
-            flash('No empty spaces', 'create')
-            es_valido_quiz = False
-        if len(formulario['correct_answer_3']) < 2:
-            flash('No empty spaces', 'create')
-            es_valido_quiz = False
-        if len(formulario['correct_answer_4']) < 2:
-            flash('No empty spaces', 'create')
-            es_valido_quiz = False
-
 
 
         return es_valido_quiz

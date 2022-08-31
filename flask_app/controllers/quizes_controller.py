@@ -115,6 +115,9 @@ def update_quiz():
 
 @app.route('/delete/like/<int:user_id>/<int:quiz_id>')
 def delete_like(user_id, quiz_id):
+    formulario = {
+        "id": session['user_id']
+    }
     if 'user_id' not in session:  
         return redirect('/')
     
@@ -125,6 +128,9 @@ def delete_like(user_id, quiz_id):
 
 @app.route('/like/<int:user_id>/<int:quiz_id>', methods=['POST'])
 def like(user_id, quiz_id):
+    formulario = {
+        "id": session['user_id']
+    }
     if 'user_id' not in session:  
         return redirect('/')
 
