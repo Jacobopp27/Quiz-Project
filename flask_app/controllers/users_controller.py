@@ -25,6 +25,9 @@ def home():
 
 @app.route('/register', methods=['POST'])
 def register():
+
+    if not User.valida_usuario(request.form):
+        return redirect('/registro')
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     print(pw_hash)
 
@@ -34,10 +37,9 @@ def register():
         "email": request.form['email'],
         "password" : pw_hash 
     }
-    if not User.valida_usuario(request.form):
-        return redirect('/')
-    else:
-        id = User.save(data)
+    
+    
+    id = User.save(data)
 
     session['user_id'] = id
     return redirect('/dashboard')

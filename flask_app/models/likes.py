@@ -23,6 +23,7 @@ class Like:
         
         for row in results:
             likes.append(cls(row)) 
+        print(results)
         return likes
         
 

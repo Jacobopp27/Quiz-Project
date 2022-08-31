@@ -23,7 +23,7 @@ def create_quiz():
         return redirect('/')
 
     if not Quiz.valida_quiz(request.form):
-        return redirect('/create/quiz')
+        return redirect('/new')
     else:
         Quiz.save(request.form)
         return redirect('/dashboard')

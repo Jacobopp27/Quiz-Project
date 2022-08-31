@@ -33,19 +33,22 @@
                         <h5>Created by {{quiz.first_name}}</h5>
                     </div>
                     <div class="d-flex">
-                        <h3>{{likes|length}} likes </h3>
+                        <h3>{{quiz.likes}} likes </h3>
                         <div class="like-unlike">
-                            <form action="/like/{{user.id}}/{{quiz.id}}" method="post" id="like" name="form_like">
-                                <input type="hidden" name="user_id" value="{{user.id}}">
-                                <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                <input type="submit" id="likes" class="btn btn-info" value="Like" onclick="like(this)">
-                            </form>
-                        
-                            <form action="/delete/like/{{user.id}}/{{quiz.id}}"  id="form-unlike" name="form-unlike">
-                                <input type="hidden" name="user_id" value="{{user.id}}">
-                                <input type="hidden" name="quiz_id" value="{{quiz.id}}">
-                                <input type="submit" id="unlike" class="btn btn-info" value="Unlike" onclick="unlike()">
-                            </form>
+                            {% if quiz.user_id != session["user_id"] %}
+                                <form action="/like/{{user.id}}/{{quiz.id}}" method="post" id="like" name="form_like" class="">
+                                    <input type="hidden" name="user_id" value="{{user.id}}">
+                                    <input type="hidden" name="quiz_id" value="{{quiz.id}}">
+                                    <input type="submit" id="likes" class="btn btn-info" value="Like" >
+                                </form>
+                                
+                            {% else %}
+                                <form action="/delete/like/{{user.id}}/{{quiz.id}}"  id="form-unlike" name="form-unlike" class="">
+                                    <input type="hidden" name="user_id" value="{{user.id}}">
+                                    <input type="hidden" name="quiz_id" value="{{quiz.id}}">
+                                    <input type="submit" id="unlike" class="btn btn-info" value="Unlike" >
+                                </form>
+                            {% endif %}
                         </div>
                     </div>
                     <div> 

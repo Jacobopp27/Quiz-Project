@@ -1,3 +1,4 @@
+from unittest import result
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 
@@ -39,6 +40,8 @@ class Quiz:
 
         self.first_name = data['first_name']
 
+        self.likes = 0
+
 
     @classmethod
     def save(cls, formulario):
@@ -53,7 +56,17 @@ class Quiz:
         quizes = []
         
         for row in results:
-            quizes.append(cls(row)) 
+
+            quiz = cls(row)
+
+            valores =  {"id": quiz.id}
+            query_likes = "SELECT COUNT(quiz_id) as like_quiz FROM likes WHERE quiz_id = %(id)s"
+            results2 = connectToMySQL('quiz_project').query_db(query_likes, valores) 
+
+            quiz.likes = results2[0]["like_quiz"]
+
+            quizes.append(quiz) 
+        print(quizes[0].likes)
         return quizes
 
     @classmethod
