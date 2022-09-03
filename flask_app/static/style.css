@@ -219,6 +219,20 @@
         margin: 5px;
         vertical-align: middle;
     }
+    #alert_message{
+        text-align: center;
+        margin: 0;
+        width: 200px;
+        position: initial;
+    }
+    #search{
+        height: 34px;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
+    .search-nav{
+        text-align: center;
+    }
 }
 
 
@@ -419,6 +433,20 @@
         margin: 5px;
         vertical-align: middle;
     }
+    #alert_message{
+        text-align: center;
+        margin: 0;
+        width: 250px;
+        position: initial;
+    }
+    #search{
+        height: 34px;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
+    .search-nav{
+        text-align: center;
+    }
 }
 
 
@@ -600,5 +628,13 @@
         margin: 0;
         width: 250px;
         position: initial;
+    }
+    #search{
+        height: 34px;
+        border-radius: 10px;
+        vertical-align: middle;
+    }
+    .search-nav{
+        text-align: center;
     }
 }

@@ -170,6 +170,12 @@ function results(){
     results.classList.remove('hide');
 }
 
+function checkInput() {
+    var query = document.getElementById('search').value;
+    window.find(query);
+    return true;
+}
+
 // function like(){
 //     e.preventDefault()
 //     var element = document.getElementById("likes");
