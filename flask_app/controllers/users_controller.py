@@ -53,13 +53,13 @@ def dashboard():
         "id": session['user_id']
     }
     
-    user_like = Like.get_like()
+    lista_likes = Like.get_like(formulario)
     user = User.get_by_id(formulario)
     users = User.get_all()
     quizes = Quiz.get_all()
     likes = Like.get_all(formulario)
 
-    return render_template('dashboard.html', user = user, users=users, quizes=quizes, likes = likes, user_like=user_like)
+    return render_template('dashboard.html', user = user, users=users, quizes=quizes, likes = likes, lista_likes=lista_likes)
 
 @app.route('/login', methods=['POST'])
 def login():

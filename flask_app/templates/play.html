@@ -69,7 +69,7 @@
                             </div>
                         </ul>
                         <div class="save">
-                            <button class="btn btn-success" id="save-q-1" onclick="save_q1()">Save answer</button>
+                            <button class="btn btn-warning" id="save-q-1" onclick="save_q1()">Save answer</button>
                             <h5 class="hide" id="saved-q-1">Saved!</h5>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                             </div>
                         </ul>
                         <div class="save">
-                            <button class="btn btn-success" id="save-q-2" onclick="save_q2()">Save answer</button>
+                            <button class="btn btn-warning" id="save-q-2" onclick="save_q2()">Save answer</button>
                             <h5 class="hide" id="saved-q-2">Saved!</h5>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                             </div>
                         </ul>
                         <div class="save">
-                            <button class="btn btn-success" id="save-q-3" onclick="save_q3()">Save answer</button>
+                            <button class="btn btn-warning" id="save-q-3" onclick="save_q3()">Save answer</button>
                             <h5 class="hide" id="saved-q-3">Saved!</h5>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                             </div>
                         </ul>
                         <div class="save">
-                            <button class="btn btn-success" id="save-q-4" onclick="save_q4()">Save answer</button>
+                            <button class="btn btn-warning" id="save-q-4" onclick="save_q4()">Save answer</button>
                             <h5 class="hide" id="saved-q-4">Saved!</h5>
                         </div>
                     </div>
@@ -181,18 +181,18 @@
                             </div>
                         </ul>
                         <div class="save">
-                            <button class="btn btn-success" id="save-q-5" onclick="save_q5()">Save answer</button>
+                            <button class="btn btn-warning" id="save-q-5" onclick="save_q5()">Save answer</button>
                             <h5 class="hide" id="saved-q-5">Saved!</h5>
                         </div>
                     </div>
                 </div>
-                <a type="submit" class="btn btn-success" id="input-results" value="Results" onclick="results()">Results</a>
+                <a type="submit" class="btn btn-warning" id="input" value="Results" onclick="results()">Results</a>
             </div>
             <div>
                 <h3 id="finalscore" class="finalscore"></h3>
                 <div class="playagain">
                     <a href="/play/quiz/{{quiz.id}}" class="btn btn-warning hide" id="playagain">Play Again</a>
-                    <a type="submit" href="/results/{{quiz.id}}" class="btn btn-info hide" id="see-results">See Correct Answers</a>
+                    <a type="submit" href="/results/{{quiz.id}}" class="btn btn-secondary hide" id="see-results">See Correct Answers</a>
                 </div>
             </div>
         </div>

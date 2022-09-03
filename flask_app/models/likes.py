@@ -27,17 +27,15 @@ class Like:
 
 
     @classmethod
-    def get_like(cls):
-        query = "SELECT likes.*, likes.user_id as user_likes FROM likes LEFT JOIN users ON users.id = likes.user_id LEFT JOIN quizes ON quizes.id = likes.quiz_id" 
-        result = connectToMySQL('quiz_project').query_db(query) 
-        user_likes = []
+    def get_like(cls, formulario):
+        query = "SELECT * FROM likes WHERE user_id = %(id)s" 
+        result = connectToMySQL('quiz_project').query_db(query, formulario) 
+        lista_likes = []
         
         for row in result:
-            likes= cls(row)
-            likes.user_id = result[0]["user_likes"]
-            user_likes.append(likes) 
+            lista_likes.append(row['quiz_id'])
             
-        return user_likes
+        return lista_likes
         
 
     @classmethod

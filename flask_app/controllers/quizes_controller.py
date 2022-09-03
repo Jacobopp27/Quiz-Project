@@ -107,6 +107,10 @@ def edit_quiz(id):
 def update_quiz():
     if 'user_id' not in session:
         return redirect('/')
+
+    if not Quiz.valida_quiz(request.form):
+        return redirect('/edit/quiz/'+request.form['quiz_id'])
+
     
     Quiz.update(request.form)
 
