@@ -107,6 +107,7 @@
 
     .createdby{
         visibility: hidden;
+        width: 0;
     }
 
     .save{
@@ -140,13 +141,13 @@
 
     .quiz_name{
         border-radius: 8px;
-        margin: 10px;
+        margin: 0;
         background-color: #95cfff;
         border: 2px solid black;
-        width: auto;
+        width: 360px;
         height: auto;
         display: flex;
-        justify-content: space-between;
+        justify-content:left;
         align-items: center;
         padding: 10px;
 
@@ -202,8 +203,8 @@
 
 
     .playagain{
-        width: 710px;
-        text-align: right;
+        width: 300px;
+        text-align: center;
     }
 
     .like-unlike{
@@ -416,8 +417,8 @@
 
 
     .playagain{
-        width: 710px;
-        text-align: right;
+        width: 400px;
+        text-align: center;
     }
 
     .like-unlike{
